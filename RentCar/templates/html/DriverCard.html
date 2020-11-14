@@ -19,8 +19,7 @@
 
         .carousel-inner .carousel-item.active,
         .carousel-inner .carousel-item-next,
-        .carousel-inner .carousel-item-prev,
-        .carousel-inner .carousel-item{
+        .carousel-inner .carousel-item-prev {
             display: flex;
         }
 
@@ -41,9 +40,14 @@
             transform: translateX(0);
         }
     </style>
-    {% block title %} Выбор водителя {% endblock %}
+    <title>Hello, world!</title>
   </head>
   <body>
+    <div class="container text-center my-3">
+    <h2 class="font-weight-light">Выбор водителя</h2>
+    </div>>
+  </head>
+
     {% block content %}
         <h2 class="font-weight-light">Выберите Вашего водителя</h2>
         <div class="row mx-auto my-auto">
@@ -57,7 +61,7 @@
                         {% endif %}
                             <div class="col-md-4">
                                 <div class="card card-body">
-                                    <img class="img-fluid" src="http://placehold.it/380?text=1">
+                                    <img class="img-fluid" src="static/Images/driver.jpg">
                                     <h5 class="card-title" style="margin-top: 20px"> {{ driver.driver_name }}</h5>
                                     <h6 class="card-subtitle mb-5 text-muted">Опыт вождения: {{ driver.driving_experience_in_years }} лет</h6>
                                     <ul class="list-group list-group-flush">

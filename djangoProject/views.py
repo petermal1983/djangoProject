@@ -1,4 +1,5 @@
 from django.http import HttpResponse
 
-def hello(request):
+
+def rent_all(request):
     return HttpResponse("Hello World")

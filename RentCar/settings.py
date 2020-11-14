@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 
+from decouple import config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from django.contrib.admin import apps
 from django.contrib.admin.apps import AdminConfig
@@ -35,16 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    #'django.contrib.contenttypes.models',
-    #'django.contrib.contenttypes.apps',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.apps.config',
-    #'django.apps.AppConfig',
-    #'django.apps.AdminConfig',
     'RentCar.apps.BlogConfig',
-
+    'crispy_forms',
 
 
 ]
@@ -82,13 +80,13 @@ WSGI_APPLICATION = 'RentCar.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
+DATABASE_PASS = '000'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': '000',
+        'PASSWORD': DATABASE_PASS,
         'HOST': '127.0.0.1',
         'PORT': '5433'
     }
@@ -128,7 +126,7 @@ LANGUAGES = (
     ('en', 'English'),
 )
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Yekaterinburg'
 
 USE_I18N = True
 
@@ -140,3 +138,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = 'RentCar/static'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = '/'

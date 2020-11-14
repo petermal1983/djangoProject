@@ -1,0 +1,16 @@
+{% extends "html/base.html" %}
+{% block title %} RentLowCostCar{% endblock %}
+
+{% block content %}
+    <h2>Contract Rents</h2>
+        {% for rent in rents %}
+            <h3>
+                <a href="{{ rent.get_absolute_url }}">
+                    {{ rent.rent_id }}
+                </a>
+            </h3>
+        <p class="date">
+            Date from {{ rent.rent_fromdate }} to {{ rent.rent_todate }}
+        </p>
+    {% endfor %}
+{% endblock %}

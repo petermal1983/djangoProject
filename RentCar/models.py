@@ -30,6 +30,11 @@ class Driver(models.Model):
     driver_name = models.CharField(unique=True, max_length=255)
     driver_email = models.CharField(unique=True, max_length=255)
     driver_phone_num = models.CharField(unique=True, max_length=255)
+    english_speaking = models.BooleanField(blank=True, null=True)
+    works_from_date = models.DateField(blank=True, null=True)
+    driving_experience_in_years = models.SmallIntegerField(blank=True, null=True)
+    rating = models.SmallIntegerField(blank=True, null=True)
+    objects = models.Manager()
 
     class Meta:
         managed = False
@@ -39,21 +44,28 @@ class Driver(models.Model):
 class Payment(models.Model):
     payment_id = models.AutoField(primary_key=True)
     payment_amount = models.DecimalField(max_digits=10, decimal_places=2)
-    payment_status = models.ForeignKey('PaymentStatus', models.DO_NOTHING, db_column='payment_status')
+    payment_status = models.ForeignKey('PaymentStatus', models.CharField, db_column='payment_status')
+
 
     class Meta:
         managed = False
         db_table = 'Payment'
 
 
-
 class PaymentStatus(models.Model):
     payment_status = models.AutoField(primary_key=True)
     payment_status_description = models.CharField(unique=True, max_length=255)
 
+    def __str__(self): # Подумать о корректном отображении экземпляра
+        return "Number status: " + str(self.payment_status) + " Description: " + str(self.payment_status_description)
+
     class Meta:
         managed = False
         db_table = 'Payment_status'
+
+class ValentinManager(models.Manager):
+    def get_queryset(self):
+        return super(ValentinManager,self).get_queryset().filter(driver_id=2)
 
 
 class Rent(models.Model):
@@ -65,6 +77,11 @@ class Rent(models.Model):
     payment = models.OneToOneField(Payment, models.DO_NOTHING)
     driver = models.ForeignKey(Driver, models.DO_NOTHING)
     equipment = models.ForeignKey('SpecialEquipment', models.DO_NOTHING)
+    objects = models.Manager()
+    objvalent = ValentinManager()
+
+
+
 
     class Meta:
         managed = False
@@ -84,6 +101,9 @@ class SpecialEquipment(models.Model):
 class TypeOfVehicle(models.Model):
     vehicle_type = models.AutoField(primary_key=True)
     vehicle_type_description = models.CharField(unique=True, max_length=255)
+
+    def __str__(self):
+        return str(self.vehicle_type)
 
     class Meta:
         managed = False

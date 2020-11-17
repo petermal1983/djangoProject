@@ -44,33 +44,36 @@
   </head>
   <body>
     <div class="container text-center my-3">
-    <h2 class="font-weight-light">Выбор водителя</h2>
+    <h2 class="font-weight-light">Выбор транспортного средства</h2>
     </div>
   </head>
 
     {% block content %}
-        <h2 class="font-weight-light">Выберите Вашего водителя</h2>
+        <h2 class="font-weight-light">Выберите нужное ТС из списка</h2>
         <div class="row mx-auto my-auto">
             <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
                 <div class="carousel-inner w-100" role="listbox">
-                    {% for driver in drivers %}
-                        {% if driver.driver_id == 1 %}
+                    {% for vehicle in vehicles %}
+                        {% if vehicle == first %}
                             <div class="carousel-item active">
                         {% else %}
                             <div class="carousel-item">
                         {% endif %}
                             <div class="col-md-4">
                                 <div class="card card-body">
-                                    <img class="img-fluid" src="static/Images/driver.jpg">
-                                    <h5 class="card-title" style="margin-top: 20px"> {{ driver.driver_name }}</h5>
-                                    <h6 class="card-subtitle mb-5 text-muted">Опыт вождения: {{ driver.driving_experience_in_years }} лет</h6>
+                                    <img class="img-fluid" src="static/Images/opel_zafira.jpg">
+                                    <h5 class="card-title" style="margin-top: 20px"> Марка: {{ vehicle.vehicle_brand }}</h5>
+                                    <h6 class="card-subtitle mb-5 text-muted">Модель: {{ vehicle.vehicle_model }}</h6>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Категория прав: {{ driver.vehicle_category }}</li>
-
-                                        <li class="list-group-item">Англоговорящий: {% if driver.english_speaking %} Да {% else %} Нет{% endif %}</li>
-                                        <li class="list-group-item">Количество поездок: </li>
-                                        <li class="list-group-item">Работает с: {{ driver.works_from_date }}</li>
-                                        <li class="list-group-item">Оценка: {{ driver.rating }}</li>
+                                        <li class="list-group-item">Тип:
+                                            {% if vehicle.vehicle_type_get  == 1 %}
+                                                Легкий пассажирский
+                                            {% elif vehicle.vehicle_type_get == 2 %}
+                                                Грузовой до 3 тонн
+                                            {% else %}
+                                                Прочие
+                                            {% endif %}
+                                        </li>
                                     </ul>
                                     <a href="#" class="btn btn-info" style="margin-top: 30px">Заказать</a>
                                 </div>
@@ -115,6 +118,6 @@
 
         </script>
     {% endblock %}
-
+    </div>>
   </body>
 </html>

@@ -6,6 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from django import template
 
 
 class Customers(models.Model):
@@ -46,7 +47,6 @@ class Payment(models.Model):
     payment_amount = models.DecimalField(max_digits=10, decimal_places=2)
     payment_status = models.ForeignKey('PaymentStatus', models.CharField, db_column='payment_status')
 
-
     class Meta:
         managed = False
         db_table = 'Payment'
@@ -56,16 +56,17 @@ class PaymentStatus(models.Model):
     payment_status = models.AutoField(primary_key=True)
     payment_status_description = models.CharField(unique=True, max_length=255)
 
-    def __str__(self): # Подумать о корректном отображении экземпляра
+    def __str__(self):  # Подумать о корректном отображении экземпляра
         return "Number status: " + str(self.payment_status) + " Description: " + str(self.payment_status_description)
 
     class Meta:
         managed = False
         db_table = 'Payment_status'
 
+
 class ValentinManager(models.Manager):
     def get_queryset(self):
-        return super(ValentinManager,self).get_queryset().filter(driver_id=2)
+        return super(ValentinManager, self).get_queryset().filter(driver_id=2)
 
 
 class Rent(models.Model):
@@ -79,9 +80,6 @@ class Rent(models.Model):
     equipment = models.ForeignKey('SpecialEquipment', models.DO_NOTHING)
     objects = models.Manager()
     objvalent = ValentinManager()
-
-
-
 
     class Meta:
         managed = False
@@ -110,12 +108,25 @@ class TypeOfVehicle(models.Model):
         db_table = 'Type_of_vehicle'
 
 
+class SpcManager(models.Manager):
+    def get_queryset(self):
+        return super(SpcManager, self).get_queryset().filter(vehicle_type__gte=11)
+
+
 class Vehicle(models.Model):
     vehicle_id = models.AutoField(db_column='vehicle_Id', primary_key=True)  # Field name made lowercase.
     vehicle_brand = models.CharField(max_length=255)
     vehicle_model = models.CharField(max_length=255)
     vehicle_regnum = models.CharField(max_length=255)
     vehicle_type = models.ForeignKey(TypeOfVehicle, models.DO_NOTHING, db_column='vehicle_type')
+    objects = models.Manager()
+    spec_objects = SpcManager()
+    # vehicle_type = models.SmallIntegerField(unique=True)
+    veh_type = template.Library()
+
+    @veh_type.simple_tag
+    def vehicle_type_get(self):
+        return int(str(self.vehicle_type))
 
     class Meta:
         managed = False
@@ -186,21 +197,6 @@ class AuthUserUserPermissions(models.Model):
         managed = False
         db_table = 'auth_user_user_permissions'
         unique_together = (('user', 'permission'),)
-
-
-class BlogPost(models.Model):
-    title = models.CharField(max_length=250)
-    slug = models.CharField(max_length=250)
-    body = models.TextField()
-    publish = models.DateTimeField()
-    created = models.DateTimeField()
-    updated = models.DateTimeField()
-    status = models.CharField(max_length=10)
-    author = models.ForeignKey(AuthUser, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'blog_post'
 
 
 class DjangoAdminLog(models.Model):

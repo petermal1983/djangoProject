@@ -7,5 +7,6 @@ urlpatterns = [
     path('rent', views.rent_list, name='rent_list'),
     path('driver', views.driver_chouse, name='driver_list'),
     path('vehicle', views.vehicle_list, name='vehicle_list'),
-    path('vehicle_cpec', views.vehicle_spec, name='vehicle_list')
+    path('vehicle_cpec', views.vehicle_spec, name='vehicle_list'),
+    path('spezeqv', views.spezeqv_choose, name='spezeqv_list')
 ]

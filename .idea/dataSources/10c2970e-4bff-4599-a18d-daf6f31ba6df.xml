@@ -790,7 +790,7 @@ false Zulu
       <ObjectId>13442</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>846</IntrospectionStateNumber>
+      <IntrospectionStateNumber>963</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|19588|19590|1
 sequence|table|19599|19601|1
@@ -865,7 +865,7 @@ sequence|table|20063|20065|1
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>847</IntrospectionStateNumber>
+      <IntrospectionStateNumber>964</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="16" parent="2" name="heap">
@@ -1065,7 +1065,7 @@ sequence|table|20063|20065|1
     <table id="49" parent="15" name="Driver">
       <ObjectId>19654</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>836</StateNumber>
+      <StateNumber>951</StateNumber>
     </table>
     <table id="50" parent="15" name="Payment">
       <ObjectId>19635</ObjectId>
@@ -1085,7 +1085,7 @@ sequence|table|20063|20065|1
     <table id="53" parent="15" name="Special_equipment">
       <ObjectId>19672</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>600</StateNumber>
+      <StateNumber>956</StateNumber>
     </table>
     <table id="54" parent="15" name="Type_of_vehicle">
       <ObjectId>19625</ObjectId>
@@ -1094,6 +1094,7 @@ sequence|table|20063|20065|1
     </table>
     <table id="55" parent="15" name="Vehicle">
       <ObjectId>19590</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>734</StateNumber>
     </table>
@@ -1289,50 +1290,56 @@ sequence|table|20063|20065|1
       <StateNumber>836</StateNumber>
       <TypeId>21</TypeId>
     </column>
-    <index id="87" parent="49" name="Driver_pk">
+    <column id="87" parent="49" name="pic_path">
+      <Position>10</Position>
+      <DataType>varchar(500)|0s</DataType>
+      <StateNumber>951</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="88" parent="49" name="Driver_pk">
       <ObjectId>19660</ObjectId>
-      <StateNumber>600</StateNumber>
+      <StateNumber>951</StateNumber>
       <ColNames>driver_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="88" parent="49" name="Driver_driver_email_key">
+    <index id="89" parent="49" name="Driver_driver_email_key">
       <ObjectId>19666</ObjectId>
-      <StateNumber>600</StateNumber>
+      <StateNumber>951</StateNumber>
       <ColNames>driver_email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="89" parent="49" name="Driver_driver_phone_num_key">
+    <index id="90" parent="49" name="Driver_driver_phone_num_key">
       <ObjectId>19668</ObjectId>
-      <StateNumber>600</StateNumber>
+      <StateNumber>951</StateNumber>
       <ColNames>driver_phone_num</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="90" parent="49" name="fki_Driver_fk0">
+    <index id="91" parent="49" name="fki_Driver_fk0">
       <ObjectId>24586</ObjectId>
-      <StateNumber>815</StateNumber>
+      <StateNumber>951</StateNumber>
       <ColNames>vehicle_category</ColNames>
     </index>
-    <key id="91" parent="49" name="Driver_pk">
+    <key id="92" parent="49" name="Driver_pk">
       <ObjectId>19661</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>driver_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>Driver_pk</UnderlyingIndexName>
     </key>
-    <key id="92" parent="49" name="Driver_driver_email_key">
+    <key id="93" parent="49" name="Driver_driver_email_key">
       <ObjectId>19667</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>driver_email</ColNames>
       <UnderlyingIndexName>Driver_driver_email_key</UnderlyingIndexName>
     </key>
-    <key id="93" parent="49" name="Driver_driver_phone_num_key">
+    <key id="94" parent="49" name="Driver_driver_phone_num_key">
       <ObjectId>19669</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>driver_phone_num</ColNames>
       <UnderlyingIndexName>Driver_driver_phone_num_key</UnderlyingIndexName>
     </key>
-    <foreign-key id="94" parent="49" name="Driver_fk0">
+    <foreign-key id="95" parent="49" name="Driver_fk0">
       <ObjectId>24615</ObjectId>
       <StateNumber>831</StateNumber>
       <ColNames>vehicle_category</ColNames>
@@ -1342,7 +1349,7 @@ sequence|table|20063|20065|1
       <RefKeyName>Type_of_vehicle_pk</RefKeyName>
       <RefColNames>vehicle_type</RefColNames>
     </foreign-key>
-    <column id="95" parent="50" name="payment_id">
+    <column id="96" parent="50" name="payment_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1350,14 +1357,14 @@ sequence|table|20063|20065|1
       <DefaultExpression>nextval(&apos;&quot;Payment_payment_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="96" parent="50" name="payment_amount">
+    <column id="97" parent="50" name="payment_amount">
       <Position>2</Position>
       <DataType>numeric|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>722</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="97" parent="50" name="payment_status">
+    <column id="98" parent="50" name="payment_status">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1365,21 +1372,21 @@ sequence|table|20063|20065|1
       <DefaultExpression>nextval(&apos;&quot;Payment_status_payment_status_seq&quot;&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <index id="98" parent="50" name="Payment_pk">
+    <index id="99" parent="50" name="Payment_pk">
       <ObjectId>19642</ObjectId>
       <StateNumber>722</StateNumber>
       <ColNames>payment_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="99" parent="50" name="Payment_pk">
+    <key id="100" parent="50" name="Payment_pk">
       <ObjectId>19643</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>payment_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>Payment_pk</UnderlyingIndexName>
     </key>
-    <foreign-key id="100" parent="50" name="Payment_fk0">
+    <foreign-key id="101" parent="50" name="Payment_fk0">
       <ObjectId>20092</ObjectId>
       <StateNumber>709</StateNumber>
       <ColNames>payment_status</ColNames>
@@ -1389,7 +1396,7 @@ sequence|table|20063|20065|1
       <RefKeyName>Payment_status_pk</RefKeyName>
       <RefColNames>payment_status</RefColNames>
     </foreign-key>
-    <column id="101" parent="51" name="payment_status">
+    <column id="102" parent="51" name="payment_status">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1397,40 +1404,40 @@ sequence|table|20063|20065|1
       <DefaultExpression>nextval(&apos;&quot;Payment_status_payment_status_seq&quot;&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="102" parent="51" name="payment_status_description">
+    <column id="103" parent="51" name="payment_status_description">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>600</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="103" parent="51" name="Payment_status_pk">
+    <index id="104" parent="51" name="Payment_status_pk">
       <ObjectId>19650</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>payment_status</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="104" parent="51" name="Payment_status_payment_status_description_key">
+    <index id="105" parent="51" name="Payment_status_payment_status_description_key">
       <ObjectId>19652</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>payment_status_description</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="105" parent="51" name="Payment_status_pk">
+    <key id="106" parent="51" name="Payment_status_pk">
       <ObjectId>19651</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>payment_status</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>Payment_status_pk</UnderlyingIndexName>
     </key>
-    <key id="106" parent="51" name="Payment_status_payment_status_description_key">
+    <key id="107" parent="51" name="Payment_status_payment_status_description_key">
       <ObjectId>19653</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>payment_status_description</ColNames>
       <UnderlyingIndexName>Payment_status_payment_status_description_key</UnderlyingIndexName>
     </key>
-    <column id="107" parent="52" name="rent_id">
+    <column id="108" parent="52" name="rent_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1438,7 +1445,7 @@ sequence|table|20063|20065|1
       <DefaultExpression>nextval(&apos;&quot;Rent_rent_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="108" parent="52" name="customer_id">
+    <column id="109" parent="52" name="customer_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1446,75 +1453,75 @@ sequence|table|20063|20065|1
       <DefaultExpression>nextval(&apos;&quot;Rent_customer_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="109" parent="52" name="vehicle_id">
+    <column id="110" parent="52" name="vehicle_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>600</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="110" parent="52" name="rent_fromdate">
+    <column id="111" parent="52" name="rent_fromdate">
       <Position>4</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>600</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="111" parent="52" name="rent_todate">
+    <column id="112" parent="52" name="rent_todate">
       <Position>5</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>600</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="112" parent="52" name="payment_id">
+    <column id="113" parent="52" name="payment_id">
       <Position>6</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>600</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="113" parent="52" name="driver_id">
+    <column id="114" parent="52" name="driver_id">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>600</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="114" parent="52" name="equipment_id">
+    <column id="115" parent="52" name="equipment_id">
       <Position>8</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>713</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="115" parent="52" name="Rent_pk">
+    <index id="116" parent="52" name="Rent_pk">
       <ObjectId>19619</ObjectId>
       <StateNumber>713</StateNumber>
       <ColNames>rent_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="116" parent="52" name="Rent_payment_id_key">
+    <index id="117" parent="52" name="Rent_payment_id_key">
       <ObjectId>19621</ObjectId>
       <StateNumber>713</StateNumber>
       <ColNames>payment_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="117" parent="52" name="Rent_pk">
+    <key id="118" parent="52" name="Rent_pk">
       <ObjectId>19620</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>rent_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>Rent_pk</UnderlyingIndexName>
     </key>
-    <key id="118" parent="52" name="Rent_payment_id_key">
+    <key id="119" parent="52" name="Rent_payment_id_key">
       <ObjectId>19622</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>payment_id</ColNames>
       <UnderlyingIndexName>Rent_payment_id_key</UnderlyingIndexName>
     </key>
-    <foreign-key id="119" parent="52" name="Rent_fk0">
+    <foreign-key id="120" parent="52" name="Rent_fk0">
       <ObjectId>19686</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>customer_id</ColNames>
@@ -1524,7 +1531,7 @@ sequence|table|20063|20065|1
       <RefKeyName>Customers_pk</RefKeyName>
       <RefColNames>customer_id</RefColNames>
     </foreign-key>
-    <foreign-key id="120" parent="52" name="Rent_fk1">
+    <foreign-key id="121" parent="52" name="Rent_fk1">
       <ObjectId>19691</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>vehicle_id</ColNames>
@@ -1534,7 +1541,7 @@ sequence|table|20063|20065|1
       <RefKeyName>Vehicles_pk</RefKeyName>
       <RefColNames>vehicle_Id</RefColNames>
     </foreign-key>
-    <foreign-key id="121" parent="52" name="Rent_fk2">
+    <foreign-key id="122" parent="52" name="Rent_fk2">
       <ObjectId>19696</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>payment_id</ColNames>
@@ -1544,7 +1551,7 @@ sequence|table|20063|20065|1
       <RefKeyName>Payment_pk</RefKeyName>
       <RefColNames>payment_id</RefColNames>
     </foreign-key>
-    <foreign-key id="122" parent="52" name="Rent_fk3">
+    <foreign-key id="123" parent="52" name="Rent_fk3">
       <ObjectId>19701</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>driver_id</ColNames>
@@ -1554,7 +1561,7 @@ sequence|table|20063|20065|1
       <RefKeyName>Driver_pk</RefKeyName>
       <RefColNames>driver_id</RefColNames>
     </foreign-key>
-    <foreign-key id="123" parent="52" name="Rent_fk4">
+    <foreign-key id="124" parent="52" name="Rent_fk4">
       <ObjectId>20105</ObjectId>
       <StateNumber>713</StateNumber>
       <ColNames>equipment_id</ColNames>
@@ -1564,7 +1571,7 @@ sequence|table|20063|20065|1
       <RefKeyName>Special_equipment_pk</RefKeyName>
       <RefColNames>equipment_id</RefColNames>
     </foreign-key>
-    <column id="124" parent="53" name="equipment_id">
+    <column id="125" parent="53" name="equipment_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1572,35 +1579,41 @@ sequence|table|20063|20065|1
       <DefaultExpression>nextval(&apos;&quot;Special_equipment_equipment_id_seq&quot;&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="125" parent="53" name="equipment_description">
+    <column id="126" parent="53" name="equipment_description">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>600</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="126" parent="53" name="equipment_type">
+    <column id="127" parent="53" name="equipment_type">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>600</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="127" parent="53" name="Special_equipment_pk">
+    <column id="128" parent="53" name="pic_path">
+      <Position>4</Position>
+      <DataType>varchar(500)|0s</DataType>
+      <StateNumber>956</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="129" parent="53" name="Special_equipment_pk">
       <ObjectId>19679</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>equipment_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="128" parent="53" name="Special_equipment_pk">
+    <key id="130" parent="53" name="Special_equipment_pk">
       <ObjectId>19680</ObjectId>
       <StateNumber>600</StateNumber>
       <ColNames>equipment_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>Special_equipment_pk</UnderlyingIndexName>
     </key>
-    <column id="129" parent="54" name="vehicle_type">
+    <column id="131" parent="54" name="vehicle_type">
       <Position>1</Position>
       <DataType>smallint|0s</DataType>
       <NotNull>1</NotNull>
@@ -1608,38 +1621,26 @@ sequence|table|20063|20065|1
       <DefaultExpression>nextval(&apos;&quot;Type_of_vehicle_vehicle_type_seq&quot;&apos;::regclass)</DefaultExpression>
       <TypeId>21</TypeId>
     </column>
-    <column id="130" parent="54" name="vehicle_type_description">
+    <column id="132" parent="54" name="vehicle_type_description">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>600</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="131" parent="54" name="Type_of_vehicle_pk">
+    <index id="133" parent="54" name="Type_of_vehicle_pk">
       <ObjectId>24588</ObjectId>
       <StateNumber>816</StateNumber>
       <ColNames>vehicle_type</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="132" parent="54" name="Type_of_vehicle_vehicle_type_description_key">
-      <ObjectId>19631</ObjectId>
-      <StateNumber>816</StateNumber>
-      <ColNames>vehicle_type_description</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="133" parent="54" name="Type_of_vehicle_pk">
+    <key id="134" parent="54" name="Type_of_vehicle_pk">
       <ObjectId>24589</ObjectId>
       <StateNumber>816</StateNumber>
       <ColNames>vehicle_type</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>Type_of_vehicle_pk</UnderlyingIndexName>
-    </key>
-    <key id="134" parent="54" name="Type_of_vehicle_vehicle_type_description_key">
-      <ObjectId>19632</ObjectId>
-      <StateNumber>600</StateNumber>
-      <ColNames>vehicle_type_description</ColNames>
-      <UnderlyingIndexName>Type_of_vehicle_vehicle_type_description_key</UnderlyingIndexName>
     </key>
     <column id="135" parent="55" name="vehicle_Id">
       <Position>1</Position>

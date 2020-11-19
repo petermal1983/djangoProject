@@ -35,6 +35,7 @@ class Driver(models.Model):
     works_from_date = models.DateField(blank=True, null=True)
     driving_experience_in_years = models.SmallIntegerField(blank=True, null=True)
     rating = models.SmallIntegerField(blank=True, null=True)
+    pic_path = models.CharField(blank=True, null=True, max_length=500)
     objects = models.Manager()
 
     class Meta:
@@ -90,6 +91,8 @@ class SpecialEquipment(models.Model):
     equipment_id = models.AutoField(primary_key=True)
     equipment_description = models.CharField(max_length=255)
     equipment_type = models.CharField(max_length=255)
+    pic_path = models.CharField(blank=True, null=True, max_length=500)
+    objects = models.Manager()
 
     class Meta:
         managed = False
@@ -110,7 +113,7 @@ class TypeOfVehicle(models.Model):
 
 class SpcManager(models.Manager):
     def get_queryset(self):
-        return super(SpcManager, self).get_queryset().filter(vehicle_type__gte=11)
+        return super(SpcManager, self).get_queryset().filter(vehicle_type__lte=15)
 
 
 class Vehicle(models.Model):
@@ -123,6 +126,7 @@ class Vehicle(models.Model):
     spec_objects = SpcManager()
     # vehicle_type = models.SmallIntegerField(unique=True)
     veh_type = template.Library()
+    pic_path = models.CharField(blank=True, null=True, max_length=500)
 
     @veh_type.simple_tag
     def vehicle_type_get(self):

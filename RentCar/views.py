@@ -1,11 +1,15 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Rent, Driver, Vehicle
+from .models import Rent, Driver, Vehicle, SpecialEquipment
 
 
 # Create your views here.
 def driver_chouse(request):
     drivers = Driver.objects.all()
     return render(request, 'html/DriverCard.html', {'drivers': drivers})
+
+def spezeqv_choose(request):
+    special_equipment = SpecialEquipment.objects.all()
+    return render(request, 'html/SpezeqvCard.html', {'special_equipment': special_equipment})
 
 
 def rent_list(request):

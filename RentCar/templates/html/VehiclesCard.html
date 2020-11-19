@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -61,17 +62,26 @@
                         {% endif %}
                             <div class="col-md-4">
                                 <div class="card card-body">
-                                    <img class="img-fluid" src="static/Images/opel_zafira.jpg">
+                                    <img class="img-fluid" src="{{ vehicle.pic_path }}">
                                     <h5 class="card-title" style="margin-top: 20px"> Марка: {{ vehicle.vehicle_brand }}</h5>
                                     <h6 class="card-subtitle mb-5 text-muted">Модель: {{ vehicle.vehicle_model }}</h6>
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">Тип:
-                                            {% if vehicle.vehicle_type_get  == 1 %}
-                                                Легкий пассажирский
-                                            {% elif vehicle.vehicle_type_get == 2 %}
-                                                Грузовой до 3 тонн
-                                            {% else %}
-                                                Прочие
+                                            {% if vehicle.vehicle_type_get  <= 5 %}
+                                                легковой
+                                            {% elif vehicle.vehicle_type_get >= 6 and vehicle.vehicle_type_get <= 8 %}
+                                                микроавтобус
+                                            {% elif vehicle.vehicle_type_get >= 9 and vehicle.vehicle_type_get <= 10 %}
+                                                сегмент "Люкс"
+                                            {% elif vehicle.vehicle_type_get == 11 %}
+                                                автомобиль для транспортировки инвалидов
+                                            {% elif vehicle.vehicle_type_get >= 12 and vehicle.vehicle_type_get <= 13 %}
+                                                грузовой
+                                            {% elif vehicle.vehicle_type_get == 14 %}
+                                                строительная техника
+                                            {% elif vehicle.vehicle_type_get == 15 %}
+                                                самосвал
+
                                             {% endif %}
                                         </li>
                                     </ul>

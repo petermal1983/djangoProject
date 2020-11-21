@@ -84,7 +84,7 @@ DATABASE_PASS = '000'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
+        'NAME': 'db2',
         'USER': 'postgres',
         'PASSWORD': DATABASE_PASS,
         'HOST': '127.0.0.1',
@@ -138,8 +138,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATIC_ROOT = 'RentCar/static'
+
+MEDIA_ROOT = BASE_DIR / Path('RentCar/media')
+MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

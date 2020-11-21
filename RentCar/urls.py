@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from . import views
@@ -9,4 +11,4 @@ urlpatterns = [
     path('vehicle', views.vehicle_list, name='vehicle_list'),
     path('vehicle_cpec', views.vehicle_spec, name='vehicle_list'),
     path('spezeqv', views.spezeqv_choose, name='spezeqv_list')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

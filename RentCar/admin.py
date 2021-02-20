@@ -3,6 +3,7 @@ from django.contrib import admin
 from .models import Customers, Rent, Payment, Driver, TypeOfVehicle, Vehicle, SpecialEquipment, PaymentStatus
 
 
+
 @admin.register(Customers)
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ('customer_id', 'customer_name', 'customer_address')
@@ -79,3 +80,6 @@ class PaymentStatusAdmin(admin.ModelAdmin):
     search_fields = ('payment_status',)
     ordering = ('payment_status',)
     list_editable = ('payment_status_description',)
+
+
+

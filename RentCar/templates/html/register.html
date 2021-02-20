@@ -1,0 +1,36 @@
+<html>
+<style>
+    body{
+        background: #CEE8F2;
+    }
+
+</style>
+<head>
+
+</head>
+<body>
+{% block content %}
+    <div style="justify-content: center; display: flex">
+        <form action="" style="margin-top: 10%" method="post">
+        {% csrf_token %}
+        <h1 style="text-align: center">Добро пожаловать!</h1>
+        <h2 style="text-align: center">Создайте новую учетную запись</h2>
+        {% for field in form %}
+            <p>
+              {{ field.label_tag }}<br>
+              {{ field }}
+              {% if field.help_text %}
+                <br>
+                <span>{{ field.help_text }}</span>
+              {% endif %}
+              {% for error in field.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </p>
+        {% endfor %}
+            <input type="submit" value="Зарегистрироваться"/>
+        </form>
+    </div>
+{% endblock %}
+</body>
+</html>

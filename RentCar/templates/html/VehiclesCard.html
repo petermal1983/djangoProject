@@ -85,7 +85,7 @@
                                             {% endif %}
                                         </li>
                                     </ul>
-                                    <a href="#" class="btn btn-info" style="margin-top: 30px">Заказать</a>
+                                    <button type="button" class="btn btn-info" id="order" style="margin-top: 30px">Заказать</button>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +106,21 @@
         <script type="text/javascript">
         $('#recipeCarousel').carousel({
             interval: 10000
-        })
+        });
+        let button = document.querySelectorAll("btn");
+        alert(button.length);
+        [].forEach.call(button, function (el){
+            el.onclick = function (e) {
+                alert("test");
+                let res = confirm("Нужен ли Вам водитель?");
+                if (res) {
+                    document.location.href = "/driver";
+                } else {
+                    alert("Конец");
+                }
+            }
+        });
+
 
         $('.carousel .carousel-item').each(function(){
             var minPerSlide = 3;

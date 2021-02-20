@@ -11,7 +11,7 @@ html, body {
 body {
     margin: 0;
     padding: 0;
-    font-size: 14px;
+    font-size: 18px;
     font-family: "Roboto","Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
     color: #333;
     background: #fff;
@@ -63,12 +63,12 @@ h1,h2,h3,h4,h5 {
 h1 {
     margin: 0 0 20px;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 25px;
     color: #666;
 }
 
 h2 {
-    font-size: 16px;
+    font-size: 20px;
     margin: 1em 0 .5em 0;
 }
 
@@ -78,20 +78,20 @@ h2.subhead {
 }
 
 h3 {
-    font-size: 14px;
+    font-size: 18px;
     margin: .8em 0 .3em 0;
     color: #666;
     font-weight: bold;
 }
 
 h4 {
-    font-size: 12px;
+    font-size: 16px;
     margin: 1em 0 .8em 0;
     padding-bottom: 3px;
 }
 
 h5 {
-    font-size: 10px;
+    font-size: 14px;
     margin: 1.5em 0 .5em 0;
     color: #666;
     text-transform: uppercase;
@@ -108,7 +108,7 @@ li ul {
 }
 
 li, dt, dd {
-    font-size: 13px;
+    font-size: 16px;
     line-height: 20px;
 }
 
@@ -135,7 +135,7 @@ fieldset {
 }
 
 blockquote {
-    font-size: 11px;
+    font-size: 15px;
     color: #777;
     margin-left: 2px;
     padding-left: 10px;
@@ -145,7 +145,7 @@ blockquote {
 code, pre {
     font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
     color: #666;
-    font-size: 12px;
+    font-size: 18px;
     overflow-x: auto;
 }
 
@@ -167,22 +167,22 @@ hr {
     border: none;
     margin: 0;
     padding: 0;
-    font-size: 1px;
+    font-size: 4px;
     line-height: 1px;
 }
 
 /* TEXT STYLES & MODIFIERS */
 
 .small {
-    font-size: 11px;
+    font-size: 15px;
 }
 
 .mini {
-    font-size: 10px;
+    font-size: 17px;
 }
 
 .help, p.help, form p.help, div.help, form div.help, div.help li {
-    font-size: 11px;
+    font-size: 16px;
     color: #999;
 }
 
@@ -219,7 +219,7 @@ table {
 }
 
 td, th {
-    font-size: 13px;
+    font-size: 17px;
     line-height: 16px;
     border-bottom: 1px solid #eee;
     vertical-align: top;
@@ -236,7 +236,7 @@ thead th,
 tfoot td {
     color: #666;
     padding: 5px 10px;
-    font-size: 11px;
+    font-size: 15px;
     background: #fff;
     border: none;
     border-top: 1px solid #eee;
@@ -319,7 +319,7 @@ table thead th.sorted .sortoptions {
 }
 
 table thead th.sorted .sortpriority {
-    font-size: .8em;
+    font-size: .10em;
     min-width: 12px;
     text-align: center;
     vertical-align: 3px;
@@ -346,7 +346,7 @@ table thead th.sorted .sortoptions a.sortremove:after {
     top: -6px;
     left: 3px;
     font-weight: 200;
-    font-size: 18px;
+    font-size: 25px;
     color: #999;
 }
 
@@ -387,7 +387,7 @@ input, textarea, select, .form-row p, form .button {
     vertical-align: middle;
     font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
     font-weight: normal;
-    font-size: 13px;
+    font-size: 16px;
 }
 .form-row div.help {
     padding: 2px 3px;
@@ -495,7 +495,7 @@ input[type=button][disabled].default {
     margin: 0;
     padding: 8px;
     font-weight: 400;
-    font-size: 13px;
+    font-size: 16px;
     text-align: left;
     background: #79aec8;
     color: #fff;
@@ -503,7 +503,7 @@ input[type=button][disabled].default {
 
 .module caption,
 .inline-group h2 {
-    font-size: 12px;
+    font-size: 16px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
@@ -522,7 +522,7 @@ ul.messagelist {
 ul.messagelist li {
     display: block;
     font-weight: 400;
-    font-size: 13px;
+    font-size: 16px;
     padding: 10px 10px 10px 65px;
     margin: 0 0 10px 0;
     background: #dfd url(../img/icon-yes.svg) 40px 12px no-repeat;
@@ -541,7 +541,7 @@ ul.messagelist li.error {
 }
 
 .errornote {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 700;
     display: block;
     padding: 10px 12px;
@@ -561,7 +561,7 @@ ul.errorlist {
 }
 
 ul.errorlist li {
-    font-size: 13px;
+    font-size: 18px;
     display: block;
     margin-bottom: 4px;
 }
@@ -601,7 +601,7 @@ td ul.errorlist + input, td ul.errorlist + select, td ul.errorlist + textarea {
 }
 
 .description {
-    font-size: 12px;
+    font-size: 17px;
     padding: 5px 0 0 12px;
 }
 
@@ -611,7 +611,7 @@ div.breadcrumbs {
     background: #79aec8;
     padding: 10px 40px;
     border: none;
-    font-size: 14px;
+    font-size: 18px;
     color: #c4dce8;
     text-align: left;
 }
@@ -658,7 +658,7 @@ a.deletelink:focus, a.deletelink:hover {
 /* OBJECT TOOLS */
 
 .object-tools {
-    font-size: 10px;
+    font-size: 15px;
     font-weight: bold;
     padding-left: 0;
     float: right;
@@ -691,7 +691,7 @@ a.deletelink:focus, a.deletelink:hover {
     padding: 3px 12px;
     background: #999;
     font-weight: 400;
-    font-size: 11px;
+    font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: #fff;

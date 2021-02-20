@@ -5,8 +5,11 @@
 #   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
+from django.contrib.auth.models import User
 from django.db import models
 from django import template
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Customers(models.Model):
@@ -24,7 +27,7 @@ class Customers(models.Model):
         managed = False
         db_table = 'Customers'
 
-
+'''Сущность "Водитель" с полями: '''
 class Driver(models.Model):
     driver_id = models.IntegerField(primary_key=True)
     vehicle_category = models.SmallIntegerField(unique=True)
@@ -245,3 +248,19 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
+
+class CustomerUser(models.Model):
+    user = models.OneToOneField\
+        (User, on_delete=models.CASCADE)
+    age = models.IntegerField()
+    citizenship = models.CharField(max_length=20, blank=True)
+    passportnum = models.CharField(max_length=10, blank=True)
+    adress = models.TextField(blank=True)
+    phone_num = models.CharField(max_length=10,blank=True)
+    license_num = models.CharField(max_length=25,blank=True)
+
+@receiver(post_save, sender=User)
+def new_user(sender, instance, created, **kwargs):
+    if created:
+        CustomerUser.objects.create(user=instance)
+        instance.customeruser.save()

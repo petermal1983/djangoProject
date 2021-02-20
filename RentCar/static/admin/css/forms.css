@@ -5,7 +5,7 @@
 .form-row {
     overflow: hidden;
     padding: 10px;
-    font-size: 13px;
+    font-size: 20px;
     border-bottom: 1px solid #eee;
 }
 
@@ -31,7 +31,7 @@ form .form-row p {
 label {
     font-weight: normal;
     color: #666;
-    font-size: 13px;
+    font-size: 20px;
 }
 
 .required label, label.required {
@@ -392,7 +392,7 @@ body.popup .submit-row {
     margin: 0;
     color: #666;
     padding: 5px;
-    font-size: 13px;
+    font-size: 20px;
     background: #f8f8f8;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
@@ -404,7 +404,7 @@ body.popup .submit-row {
 
 .inline-related h3 span.delete label {
     margin-left: 2px;
-    font-size: 11px;
+    font-size: 15px;
 }
 
 .inline-related fieldset {
@@ -417,7 +417,7 @@ body.popup .submit-row {
 .inline-related fieldset.module h3 {
     margin: 0;
     padding: 2px 5px 3px 5px;
-    font-size: 11px;
+    font-size: 15px;
     text-align: left;
     font-weight: bold;
     background: #bcd;
@@ -458,7 +458,7 @@ body.popup .submit-row {
     height: 1.1em;
     padding: 2px 9px;
     overflow: hidden;
-    font-size: 9px;
+    font-size: 12px;
     font-weight: bold;
     color: #666;
     _width: 700px;
@@ -493,7 +493,7 @@ body.popup .submit-row {
 .inline-group .tabular tr.add-row td a {
     background: url(../img/icon-addlink.svg) 0 1px no-repeat;
     padding-left: 16px;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .empty-form {

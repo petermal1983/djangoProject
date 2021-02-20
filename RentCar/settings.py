@@ -35,16 +35,17 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'grappelli',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.apps.config',
-    'RentCar.apps.BlogConfig',
+    'RentCar',
     'crispy_forms',
-
-
+    'reports',
+    'django.contrib.admindocs',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,11 @@ STATIC_ROOT = 'RentCar/static'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = '/'
+
+GRAPPELLI_ADMIN_TITLE = 'Добро пожаловать на страницу администрирования "CarsForCommonGood"'
+
+GRAPPELLI_SWITCH_USER = True
+
+GRAPPELLI_SWITCH_USER_TARGET = True
+
+
